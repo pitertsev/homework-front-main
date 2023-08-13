@@ -1,16 +1,18 @@
-type ButtonPropsType = {
-  callBack: any // НУЖНО ПРОТИПИЗИРОВАТЬ
-  name: any // НУЖНО ПРОТИПИЗИРОВАТЬ
-};
+import { FC } from 'react'
 
-export const Button = (props: ButtonPropsType) => {
+type ButtonPropsType = {
+  callBack: () => void
+  name: string
+}
+
+export const Button: FC<ButtonPropsType> = ({ callBack, name }) => {
   const callBackHandler = () => {
-    // НУЖНО ДОПИСАТЬ
-  };
+    callBack()
+  }
 
   return (
     <button id={'hw04-button'} onClick={callBackHandler}>
-      {props.name}
+      {name}
     </button>
-  );
-};
+  )
+}
